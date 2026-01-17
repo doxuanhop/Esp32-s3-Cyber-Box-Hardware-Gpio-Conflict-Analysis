@@ -25,6 +25,7 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 ## 2. ESP32-S3 GPIO Pin Mapping
 
 ### 2.1 TFT Display – ST7789 (SPI)
+```c
 // ###### CẤU HÌNH KÍCH THƯỚC ######
 #define TFT_WIDTH  240
 #define TFT_HEIGHT 240
@@ -37,7 +38,7 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 #define TFT_MOSI 12       // Chân SDA
 #define TFT_RST  3        // Chân RESET
 #define TFT_MISO -1        // Không dùng chân MISO
-
+```
 
 | Function   | GPIO   | Notes             |
 | ---------- | ------ | ----------------- |
