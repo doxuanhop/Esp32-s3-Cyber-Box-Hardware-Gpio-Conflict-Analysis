@@ -25,6 +25,19 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 ## 2. ESP32-S3 GPIO Pin Mapping
 
 ### 2.1 TFT Display – ST7789 (SPI)
+// ###### CẤU HÌNH KÍCH THƯỚC ######
+#define TFT_WIDTH  240
+#define TFT_HEIGHT 240
+
+// ###### CẤU HÌNH CHÂN KẾT NỐI (Sơ đồ bạn cung cấp) ######
+#define TFT_BL   39       // Chân LEDK
+#define TFT_DC   47       // Chân D/C
+#define TFT_CS   14       // Chân CS
+#define TFT_SCLK 48       // Chân SCL
+#define TFT_MOSI 12       // Chân SDA
+#define TFT_RST  3        // Chân RESET
+#define TFT_MISO -1        // Không dùng chân MISO
+
 
 | Function   | GPIO   | Notes             |
 | ---------- | ------ | ----------------- |
@@ -40,12 +53,13 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 ### 2.2 Buttons
 
 ```c
-#define BTN_UP     40
-#define BTN_DOWN   5
-#define BTN_LEFT   4
-#define BTN_RIGHT  36
-#define BTN_A      37
-#define BTN_B      45
+// GÁN LẠI CHÂN ĐỂ JOYSTICK DỄ SỬ DỤNG HƠN
+#define BTN_UP    40 // Joystick D
+#define BTN_DOWN  5 // Joystick B
+#define BTN_LEFT  4  // Joystick A
+#define BTN_RIGHT 45  // Joystick C
+#define BTN_A     37 // KEY2 (OK)
+#define BTN_B     36 // KEY1 (Back)
 ```
 
 | Button | GPIO   | Notes      |
@@ -75,8 +89,8 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 
 | ESP32-S3 GPIO | BME280 | Function  |
 | ------------- | ------ | --------- |
-| GPIO06        | SCL    | I²C Clock |
-| GPIO07        | SDA    | I²C Data  |
+| GPIO6         | SCL    | I²C Clock |
+| GPIO18        | SDA    | I²C Data  |
 
 ---
 
@@ -87,40 +101,6 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 | GPIO41        | Q2 → Buzzer | PWM / Beep |
 
 ---
-
-## 3. GPIO Conflict Analysis
-
-### 3.1 No Critical Conflicts
-
-* TFT SPI and SD SPI use **separate buses**
-* USB native and USB-UART are isolated
-* ADC pin is not reused
-* I²C does not overlap SPI
-
-✅ **No blocking GPIO conflicts detected**
-
----
-
-### 3.2 Sensitive / Special GPIOs
-
-| GPIO      | Reason     | Recommendation           |
-| --------- | ---------- | ------------------------ |
-| GPIO0     | Boot strap | Use INPUT_PULLUP         |
-| GPIO10–13 | Boot strap | Avoid fixed pull-up/down |
-| GPIO36/37 | Input-only | Do not configure OUTPUT  |
-| GPIO19/20 | USB        | Do not reuse             |
-| GPIO1     | ADC / UART | Avoid Serial TX          |
-
----
-
-## 4. Firmware Notes (Arduino / ESP-IDF)
-
-```cpp
-// SD card SPI
-SPI.begin(11, 12, 13, 10);
-
-// I2C
-Wire.begin(7, 6);
 
 // Boot button
 pinMode(0, INPUT_PULLUP);
