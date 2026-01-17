@@ -100,11 +100,3 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 | ESP32-S3 GPIO | Component   | Function   |
 | ------------- | ----------- | ---------- |
 | GPIO41        | Q2 → Buzzer | PWM / Beep |
-
----
-
-// Boot button
-pinMode(0, INPUT_PULLUP);
-```
-
----
