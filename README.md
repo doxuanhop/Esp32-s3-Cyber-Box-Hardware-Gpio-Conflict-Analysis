@@ -6,7 +6,11 @@
 > **Revision**: v1.0 (2025-12-09)
 
 ---
-
+### Screenshots
+![Preview](image/photo_6271567445726270509_y.jpg)
+![Preview](image/photo_6271567445726270510_y.jpg)
+![Preview](image/photo_6271567445726270511_x.jpg)
+![Preview](image/photo_6271567445726270512_x.jpg)
 ## 1. Project Overview
 
 CyberBox là một thiết bị nhúng dựa trên **ESP32-S3**, tích hợp:
