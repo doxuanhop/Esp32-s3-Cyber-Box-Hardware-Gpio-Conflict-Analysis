@@ -59,12 +59,12 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 
 ```c
 // GÁN LẠI CHÂN ĐỂ JOYSTICK DỄ SỬ DỤNG HƠN
-#define BTN_UP    40 // Joystick D
-#define BTN_DOWN  5 // Joystick B
-#define BTN_LEFT  4  // Joystick A
-#define BTN_RIGHT 45  // Joystick C
-#define BTN_A     37 // KEY2 (OK)
-#define BTN_B     36 // KEY1 (Back)
+ #define BTN_UP    40 // Joystick D 
+ #define BTN_DOWN  5 // Joystick B 
+ #define BTN_LEFT  4  // Joystick A 
+ #define BTN_RIGHT 45  // Joystick C 
+ #define BTN_A     37 // KEY2 (OK) 
+ #define BTN_B     36 // KEY1 (Back) 
 ```
 
 | Button | GPIO   | Notes      |
@@ -72,9 +72,9 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 | UP     | GPIO40 | Input      |
 | DOWN   | GPIO5  | Input      |
 | LEFT   | GPIO4  | Input      |
-| RIGHT  | GPIO36 | Input-only |
+| RIGHT  | GPIO45 | Input-only |
 | A      | GPIO37 | Input-only |
-| B      | GPIO45 | Input      |
+| B      | GPIO36 | Input      |
 
 ---
 
@@ -104,3 +104,12 @@ Tài liệu này mô tả **pin mapping**, **kiểm tra xung đột GPIO** và *
 | ESP32-S3 GPIO | Component   | Function   |
 | ------------- | ----------- | ---------- |
 | GPIO41        | Q2 → Buzzer | PWM / Beep |
+
+---
+
+### 2.5 Battery
+ #define PIN_BAT  1 
+ #define D+ 20 
+ #define D- 19
+
+ ---
